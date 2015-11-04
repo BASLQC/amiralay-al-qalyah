@@ -1,0 +1,16 @@
+Task Scheduler
+==============
+
+The robot will be designed to conduct only one task at a time, no multithreading (which is against API rules).
+
+Given this limitation, we will need a way to schedule tasks in order of importance, and send a task up the list if it is more important.
+
+## Daily Tasks
+
+Daily tasks can be preset into the scheduler from a database that is kept in sync with the wiki (using a different system of scraper).
+
+## Construction Tasks
+
+Because of the randomness of construction, the script will focus on building "general" classes and hope to get at least one unit from that class. 
+
+The recommended fleet loadout is listed here: https://trello.com/c/yIDVT4P4/117-required-fleet

@@ -1,18 +1,21 @@
 # General Combat Script 
+
 * Assume fleet has been pre-optimized already
 * Save which sortie is currently on, and the stats of the fleet as variables for later use
 * Check wiki for formations. Use the best formation for the current fleet
+
 Ex. If using torpedo-heavy fleet, and line ahead is one of the options, use line ahead
 
 ```
 while (!retreat)
 {
-	navigate 
-	formation script
-	battle
-		night battle script
-	retreat script
+	navigate()
+	formation()
+	battle()
+		// also runs night_battle(), which checks if night battle is necessary and whether to risk it
+	retreat()
 }
+```
 
 # Formation Script
 ```
@@ -34,7 +37,7 @@ Kind Admiral:
 ```
 if (current score < enemy score)
 {
-	retreat
+	retreat()
 }
 else
 {
@@ -47,11 +50,11 @@ Strategic Admiral:
 ```
 if (current score < enemy score)
 {
-	retreat
+	retreat()
 }
 else if (risk of losing girls < chance of reward)
 {
-	night battle
+	night_battle()
 }
 else
 {
@@ -66,7 +69,7 @@ Kind Admiral:
 ```
 if (ship damage >= heavy damage)
 {
-  retreat
+  retreat()
 }
 else
 {

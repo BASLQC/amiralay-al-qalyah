@@ -1,0 +1,25 @@
+## Sortie
+
+A Sortie is a campaign where you send your shipgirls to fight in a real war. Unlike the Practice wargame, you will run the risk of sinking your ships if you push them beyond heavy damage.
+
+The sorties are the core of the game and many shipgirls can be earned in this method. However, it requires good strategy and mettle to fight a war when your cute little shipgirls are on the line.
+
+### Constructor
+
+The Sortie is an initializable Class, where you provide it parameters about which world and stage to assault, and with which fleet.
+
+```
+class Sortie():
+	def __init__(int world, int stage):
+		self.world = world
+		self.stage = stage 
+```
+
+Example Usage:
+
+```
+
+world12 = Deployment.Sortie(1, 2)
+```
+
+### 

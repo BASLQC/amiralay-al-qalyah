@@ -1,0 +1,126 @@
+# Fleet
+
+A fleet is a group of ships organized into a task force. It is an initializable object containing Ship objects, and is kept in sync with the Fleet reported by the Kancolle API.
+
+## Constructor
+
+There are two constructors used.
+
+### Default Fleet
+
+Default Fleet is used to just get the current fleet configuration from the server as is.
+
+* `fleet_id` (integer) - The ID of the fleet to access.
+
+```
+class Fleet():
+	def __init__(self, fleet_id):
+		self.fleet_id = fleet_id
+		self.ships = sync()
+```
+
+### Custom Fleet
+
+Custom Fleet syncs a new fleet list both client and server side.
+
+* `fleet_id` (integer) - The ID of the fleet to access.
+* `ships` (tuple) - A list of Ship objects to add to the fleet.
+
+```
+class Fleet():
+	def __init__(self, fleet_id, ships):
+		self.fleet_id = fleet_id
+		self.ships = ships
+		commit(self.ships)
+		
+```
+
+## Sync
+
+These two methods keep the fleet list in sync with the server.
+
+### Commit
+
+This internal method is used to commit all changes in `ships` with the server.
+
+```
+def commit(self):
+	kancolle.update_fleet(self.ships)
+```
+
+### Sync
+
+This internal method is used to obtain the current ship configuration from the server.
+
+```
+def sync(self):
+	self.ships = kancolle.get_fleet()
+```
+
+## Accessor
+
+There are two accessors included with the Fleet Class.
+
+### List of Ships
+
+This accessor returns a list of all ships.
+
+```
+@property
+def all_ships(self):
+	return self.ships
+```
+
+### Position
+
+This accessor takes a fleet position ID and returns the Ship object in this position.
+
+```
+@property
+def position(self, index):
+	return self.ships[index]
+```
+
+### Flagship
+
+This accessor returns the Ship object in the first position, which is defined as the Flagship.
+
+```
+@property
+def flagship(self):
+	return self.ships[1]
+```
+
+## Mutator
+
+You can add a ship to a fleet, or remove it. The resulting change is synced with the server.
+
+### List of Ships
+
+This mutator sets the list of all ships.
+
+```
+@list.setter
+def list(self, ships):
+	self.ships = ships
+```
+
+### Position
+
+This mutator takes a fleet position ID and Ship object, and sets it in the list of Ships.
+
+```
+@position.setter
+def position(self, index, ship):
+	self.ships[index] = ship
+```
+
+### Flagship
+
+This mutator takes a Ship object, and sets it as the Flagship (first ship) in the list of Ships.
+
+```
+@flagship.setter
+def flagship(self, ship):
+	self.ships[1] = ship
+```
