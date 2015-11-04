@@ -1,0 +1,83 @@
+# General Combat Script 
+* Assume fleet has been pre-optimized already
+* Save which sortie is currently on, and the stats of the fleet as variables for later use
+* Check wiki for formations. Use the best formation for the current fleet
+Ex. If using torpedo-heavy fleet, and line ahead is one of the options, use line ahead
+
+```
+while (!retreat)
+{
+	navigate 
+	formation script
+	battle
+		night battle script
+	retreat script
+}
+
+# Formation Script
+```
+<integers for 5 stats of fleets>
+<integer for admiral level>
+
+pull ideal formations for given node and admiral level
+if (multiple ideal formations)
+{
+	random dice roll
+}
+```
+
+# Night Battle
+Night battles are continuations of the main battles, so if a ship is heavily damaged during a battle, there's no chance of it being sunk during the night battle. However, there is a possiblity of risking a heavily damaged ship girl furthur.
+
+Kind Admiral:
+
+```
+if (current score < enemy score)
+{
+	retreat
+}
+else
+{
+	night battle
+}
+```
+
+Strategic Admiral:
+
+```
+if (current score < enemy score)
+{
+	retreat
+}
+else if (risk of losing girls < chance of reward)
+{
+	night battle
+}
+else
+{
+	...
+```
+
+# Retreating
+Ships are only at risk of sinking if they are heavily damaged at the beginning of a battle. Otherwise, if a ship becomes heavily damaged during a battle, every following shot at it that would normally kill it will miss. So, it's very simple not to lose a ship girl, and only a kuso teitoku would take that kind of risk.
+
+Kind Admiral:
+
+```
+if (ship damage >= heavy damage)
+{
+  retreat
+}
+else
+{
+  continue
+}
+```
+
+Strategic Admiral:
+
+```
+if (ship damage >= heavy damage && (risk of losing ship girl < chance of reward))
+{
+  ...
+```
