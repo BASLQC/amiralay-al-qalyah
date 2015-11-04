@@ -14,28 +14,16 @@ while (!retreat)
 	retreat script
 }
 
-# Retreating
-Ships are only at risk of sinking if they are heavily damaged at the beginning of a battle. Otherwise, if a ship becomes heavily damaged during a battle, every following shot at it that would normally kill it will miss. So, it's very simple not to lose a ship girl, and only a kuso teitoku would take that kind of risk.
-
-Kind Admiral:
-
+# Formation Script
 ```
-if (ship damage >= heavy damage)
+<integers for 5 stats of fleets>
+<integer for admiral level>
+
+pull ideal formations for given node and admiral level
+if (multiple ideal formations)
 {
-  retreat
+	random dice roll
 }
-else
-{
-  continue
-}
-```
-
-Strategic Admiral:
-
-```
-if (ship damage >= heavy damage && (risk of losing ship girl < chance of reward))
-{
-  ...
 ```
 
 # Night Battle
@@ -68,4 +56,28 @@ else if (risk of losing girls < chance of reward)
 else
 {
 	...
+```
+
+# Retreating
+Ships are only at risk of sinking if they are heavily damaged at the beginning of a battle. Otherwise, if a ship becomes heavily damaged during a battle, every following shot at it that would normally kill it will miss. So, it's very simple not to lose a ship girl, and only a kuso teitoku would take that kind of risk.
+
+Kind Admiral:
+
+```
+if (ship damage >= heavy damage)
+{
+  retreat
+}
+else
+{
+  continue
+}
+```
+
+Strategic Admiral:
+
+```
+if (ship damage >= heavy damage && (risk of losing ship girl < chance of reward))
+{
+  ...
 ```
