@@ -13,4 +13,4 @@ Daily tasks can be preset into the scheduler from a database that is kept in syn
 
 Because of the randomness of construction, the script will focus on building "general" classes and hope to get at least one unit from that class. 
 
-The recommended fleet loadout is listed here: https://trello.com/c/yIDVT4P4/117-required-fleet
+The recommended fleet loadout is listed here: https://trello.com/c/yIDVT4P4/117-required-fleet 
