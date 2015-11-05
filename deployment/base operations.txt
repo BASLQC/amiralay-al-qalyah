@@ -5,12 +5,14 @@
 ## Equipment
 
 # Repairs
+
 Reverse triage should probably be used, as repair slots are limited, and the more ships you can use at once, the better. On the other hand, having your flagship repaired can be more important than repairing a few destroyers. Also, the fleet that a ship is in can also raise its repair importance (ie. the fleet needs to sortie before another fleet, so the ships in the first fleet should be repaired first)
 
 # Fleet Distribution
 Many things to consider here: 
-	Which ships are ready to go (repaired and supplied)
-	Which ships need experience
-	What ships are ideal for a given sortie
-	What equipment goes to who
+
+* Which ships are ready to go (repaired and supplied)
+* Which ships need experience
+ *What ships are ideal for a given sortie
+* What equipment goes to who
 	
