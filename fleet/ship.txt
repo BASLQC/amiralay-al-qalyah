@@ -1,0 +1,8 @@
+## Ship
+
+A ship is a basic unit of a fleet. It is coded as a structure which stores data about what kind of ship it is.
+
+### Usage
+
+* **Dock** - The Dock Class
+* **Fleet** - The Fleet Class is a task force composed of ships. It's pretty 
